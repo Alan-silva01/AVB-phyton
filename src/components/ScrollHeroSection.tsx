@@ -14,12 +14,12 @@ const ScrollHeroSection = () => {
       ]}
       theme="dark"
       animate={true}
-      hue={217}
+      hue={25}
       startVh={50}
       spaceVh={50}
       debug={false}
       showFooter={false}
-      taglineHTML="Desenvolvo soluções inteligentes que <br />simplificam processos e <span style='color: hsl(217 91% 60%)'>otimizam rotinas</span>."
+      taglineHTML="Desenvolvo soluções inteligentes que <br />simplificam processos e <span style='color: #FF8C42'>otimizam rotinas</span>."
     />
   );
 };
