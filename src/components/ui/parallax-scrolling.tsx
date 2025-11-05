@@ -80,10 +80,10 @@ export function ParallaxComponent() {
             />
             <div data-parallax-layer="3" className="parallax__layer-title">
               <div className="flex flex-col items-center gap-3 sm:gap-4">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-black/60 blur-3xl scale-110 -z-10"></div>
+                <div className="relative px-12 py-8">
+                  <div className="absolute inset-0 bg-black/80 blur-[80px] scale-125"></div>
                   <h1 
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-[0.2em] sm:tracking-[0.3em] uppercase relative"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-[0.2em] sm:tracking-[0.3em] uppercase relative z-10"
                     style={{ 
                       color: '#FF8C42'
                     }}
