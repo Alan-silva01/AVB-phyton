@@ -79,7 +79,7 @@ export function ParallaxComponent() {
               className="parallax__layer-img" 
             />
             <div data-parallax-layer="3" className="parallax__layer-title">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-[0.2em] sm:tracking-[0.3em] text-cyan-400 uppercase drop-shadow-[0_0_30px_rgba(6,182,212,0.8)]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-[0.2em] sm:tracking-[0.3em] uppercase drop-shadow-[0_0_30px_rgba(255,140,66,0.8)]" style={{ color: '#FF8C42' }}>
                 INTELFLUX
               </h1>
             </div>
