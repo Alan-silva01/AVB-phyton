@@ -44,6 +44,39 @@ function WordHeroPage({
     root.style.setProperty("--space", `${spaceVh}vh`);
   }, [theme, animate, debug, hue, startVh, spaceVh]);
 
+  // Mobile fallback: replicate highlight band without background-attachment issues
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 768px)');
+    const enable = mql.matches;
+    if (!enable) return;
+
+    const root = document.documentElement;
+    root.dataset.stickyFallback = 'true';
+
+    const itemsEls = Array.from(document.querySelectorAll('header ul li')) as HTMLElement[];
+    const bandCenter = () => window.innerHeight * (startVh / 100);
+
+    const update = () => {
+      const center = bandCenter();
+      itemsEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const inBand = center >= rect.top && center <= rect.bottom;
+        el.dataset.active = String(inBand);
+      });
+    };
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+      itemsEls.forEach((el) => { delete el.dataset.active; });
+      delete root.dataset.stickyFallback;
+    };
+  }, [startVh]);
+
   return (
     <div
       className="min-h-screen w-screen"
@@ -175,6 +208,16 @@ function WordHeroPage({
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+        }
+        /* Mobile fallback: emulate highlight band via JS */
+        [data-sticky-fallback='true'] li {
+          background: none;
+          color: color-mix(in oklch, canvasText, #0000 80%);
+          -webkit-text-fill-color: currentColor;
+        }
+        [data-sticky-fallback='true'] li[data-active='true'] {
+          color: var(--accent);
+          -webkit-text-fill-color: var(--accent);
         }
 
         main {
