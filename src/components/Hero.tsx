@@ -52,8 +52,6 @@ const Hero = () => {
         />
       </div>
 
-      {/* AI Solutions Agency tagline - REMOVED since it's now in parallax */}
-
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-48 lg:h-64 bg-gradient-to-t from-black via-black to-transparent sm:via-black/95 pointer-events-none" />
     </section>
