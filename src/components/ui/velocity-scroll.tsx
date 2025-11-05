@@ -17,12 +17,14 @@ interface VelocityScrollProps {
   text: string;
   default_velocity?: number;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 interface ParallaxProps {
   children: string;
   baseVelocity: number;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export const wrap = (min: number, max: number, v: number) => {
@@ -34,6 +36,7 @@ function ParallaxText({
   children,
   baseVelocity = 100,
   className,
+  style,
 }: ParallaxProps) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
@@ -89,9 +92,9 @@ function ParallaxText({
       className="w-full overflow-hidden whitespace-nowrap"
       ref={containerRef}
     >
-      <motion.div className={cn("inline-block", className)} style={{ x }}>
+      <motion.div className={cn("inline-block", className)} style={{ x, ...style }}>
         {Array.from({ length: repetitions }).map((_, i) => (
-          <span key={i} ref={i === 0 ? textRef : null}>
+          <span key={i} ref={i === 0 ? textRef : null} className="transition-transform duration-300 hover:scale-110 inline-block">
             {children}{" "}
           </span>
         ))}
@@ -104,10 +107,11 @@ export function VelocityScroll({
   text,
   default_velocity = 5,
   className,
+  style,
 }: VelocityScrollProps) {
   return (
     <div className="relative w-full">
-      <ParallaxText baseVelocity={default_velocity} className={className}>
+      <ParallaxText baseVelocity={default_velocity} className={className} style={style}>
         {text}
       </ParallaxText>
     </div>
