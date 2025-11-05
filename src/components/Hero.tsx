@@ -1,66 +1,40 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import HeroSkeleton from "./HeroSkeleton";
-
-const SCROLL_SPEED = 60; // pixels por segundo - reduzido para melhor performance
+import { VelocityScroll } from "./ui/velocity-scroll";
 
 const Hero = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const trackRef = useRef<HTMLDivElement | null>(null);
-  const firstGroupRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const track = trackRef.current;
-    const firstGroup = firstGroupRef.current;
-    if (!track || !firstGroup) return;
-
-    // Calcula a largura total incluindo os gaps
-    const calculateContentWidth = () => {
-      const firstGroupWidth = firstGroup.getBoundingClientRect().width;
-      // Pega o gap do estilo computado
-      const computedStyle = window.getComputedStyle(firstGroup);
-      const gap = parseFloat(computedStyle.gap) || 0;
-
-      // A largura total é a largura do grupo + o gap (já que temos 2 grupos)
-      return firstGroupWidth + gap;
-    };
-
-    let contentWidth = calculateContentWidth();
-    let x = 0;
-    let rafId = 0;
-    let lastTime = performance.now();
-
-    const step = (now: number) => {
-      const dt = (now - lastTime) / 1000;
-      lastTime = now;
-
-      x -= SCROLL_SPEED * dt;
-
-      // Quando chegar no final do primeiro grupo, reseta
-      if (x <= -contentWidth) {
-        x += contentWidth;
-      }
-
-      track.style.transform = `translateX(${x}px)`;
-      rafId = requestAnimationFrame(step);
-    };
-
-    rafId = requestAnimationFrame(step);
-
-    const handleResize = () => {
-      const newWidth = calculateContentWidth();
-      // Ajusta a posição X proporcionalmente à nova largura
-      if (contentWidth > 0) {
-        x = (x / contentWidth) * newWidth;
-      }
-      contentWidth = newWidth;
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const techWords = [
+    "AUTOMAÇÕES",
+    "N8N",
+    "INTEGRAÇÕES",
+    "SUPABASE",
+    "APIS",
+    "POSTGRES",
+    "AGENTES DE IA",
+    "SQL",
+    "WORKFLOWS INTELIGENTES",
+    "OPENAI",
+    "DISPAROS AUTOMÁTICOS",
+    "VIBE CODING",
+    "CHATBOTS",
+    "LOVABLE",
+    "ASSISTENTES VIRTUAIS",
+    "MAKE",
+    "APLICATIVOS NO-CODE",
+    "GPT AGENTS",
+    "DASHBOARDS",
+    "WHATSAPP API",
+    "SISTEMAS PERSONALIZADOS",
+    "WEBHOOKS",
+    "APLICAÇÕES WEB",
+    "HTTP REQUEST",
+    "APLICAÇÕES MOBILE",
+    "API REST",
+    "SITES INTELIGENTES",
+    "SOLUÇÕES CORPORATIVAS",
+  ].join(" • ");
 
   return (
     <>
@@ -88,97 +62,13 @@ const Hero = () => {
           />
         </div>
 
-        {/* Infinite Scroll Text - Bottom Gradient */}
+        {/* Infinite Scroll Text with Framer Motion - Bottom Gradient */}
         <div className="absolute bottom-16 sm:bottom-20 lg:bottom-24 left-0 right-0 z-10 overflow-hidden pointer-events-none">
-          <div 
-            ref={trackRef} 
-            className="flex whitespace-nowrap w-max"
-            style={{
-              transform: "translateZ(0)",
-              willChange: "transform",
-              backfaceVisibility: "hidden",
-              perspective: "1000px"
-            }}
-          >
-            <div ref={firstGroupRef} className="flex gap-8 sm:gap-12 md:gap-16 lg:gap-20">
-              {[
-                "AUTOMAÇÕES",
-                "N8N",
-                "INTEGRAÇÕES",
-                "SUPABASE",
-                "APIS",
-                "POSTGRES",
-                "AGENTES DE IA",
-                "SQL",
-                "WORKFLOWS INTELIGENTES",
-                "OPENAI",
-                "DISPAROS AUTOMÁTICOS",
-                "VIBE CODING",
-                "CHATBOTS",
-                "LOVABLE",
-                "ASSISTENTES VIRTUAIS",
-                "MAKE",
-                "APLICATIVOS NO-CODE",
-                "GPT AGENTS",
-                "DASHBOARDS",
-                "WHATSAPP API",
-                "SISTEMAS PERSONALIZADOS",
-                "WEBHOOKS",
-                "APLICAÇÕES WEB",
-                "HTTP REQUEST",
-                "APLICAÇÕES MOBILE",
-                "API REST",
-                "SITES INTELIGENTES",
-                "SOLUÇÕES CORPORATIVAS",
-              ].map((text, i) => (
-                <span
-                  key={i}
-                  className="text-xs sm:text-sm md:text-base font-light tracking-[0.15em] sm:tracking-[0.2em] text-foreground/70 uppercase"
-                >
-                  {text}
-                </span>
-              ))}
-            </div>
-            <div className="flex gap-8 sm:gap-12 md:gap-16 lg:gap-20" aria-hidden="true">
-              {[
-                "AUTOMAÇÕES",
-                "N8N",
-                "INTEGRAÇÕES",
-                "SUPABASE",
-                "APIS",
-                "POSTGRES",
-                "AGENTES DE IA",
-                "SQL",
-                "WORKFLOWS INTELIGENTES",
-                "OPENAI",
-                "DISPAROS AUTOMÁTICOS",
-                "VIBE CODING",
-                "CHATBOTS",
-                "LOVABLE",
-                "ASSISTENTES VIRTUAIS",
-                "MAKE",
-                "APLICATIVOS NO-CODE",
-                "GPT AGENTS",
-                "DASHBOARDS",
-                "WHATSAPP API",
-                "SISTEMAS PERSONALIZADOS",
-                "WEBHOOKS",
-                "APLICAÇÕES WEB",
-                "HTTP REQUEST",
-                "APLICAÇÕES MOBILE",
-                "API REST",
-                "SITES INTELIGENTES",
-                "SOLUÇÕES CORPORATIVAS",
-              ].map((text, i) => (
-                <span
-                  key={`duplicate-${i}`}
-                  className="text-xs sm:text-sm md:text-base font-light tracking-[0.15em] sm:tracking-[0.2em] text-foreground/70 uppercase"
-                >
-                  {text}
-                </span>
-              ))}
-            </div>
-          </div>
+          <VelocityScroll
+            text={techWords}
+            default_velocity={2}
+            className="text-xs sm:text-sm md:text-base font-light tracking-[0.15em] sm:tracking-[0.2em] text-foreground/70 uppercase"
+          />
         </div>
 
         {/* Hero Text Content */}
