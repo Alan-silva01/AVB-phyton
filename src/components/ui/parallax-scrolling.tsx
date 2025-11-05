@@ -80,17 +80,17 @@ export function ParallaxComponent() {
             />
             <div data-parallax-layer="3" className="parallax__layer-title">
               <div className="flex flex-col items-center gap-3 sm:gap-4">
-                <h1 
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase"
-                  style={{ 
-                    color: '#FF8C42',
-                    textShadow: '0 0 10px rgba(255, 140, 66, 1), 0 0 20px rgba(255, 140, 66, 0.8), 0 0 30px rgba(255, 140, 66, 0.6), 0 0 40px rgba(255, 140, 66, 0.4)',
-                    WebkitTextStroke: '1px rgba(255, 140, 66, 0.5)',
-                    filter: 'contrast(1.2) brightness(1.1)'
-                  }}
-                >
-                  INTELFLUX
-                </h1>
+                <div className="relative">
+                  <div className="absolute inset-0 bg-black/60 blur-3xl scale-110 -z-10"></div>
+                  <h1 
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-[0.2em] sm:tracking-[0.3em] uppercase relative"
+                    style={{ 
+                      color: '#FF8C42'
+                    }}
+                  >
+                    INTELFLUX
+                  </h1>
+                </div>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light tracking-[0.15em] sm:tracking-[0.2em] text-white/90 uppercase">
                   AI SOLUTIONS AGENCY
                 </p>
