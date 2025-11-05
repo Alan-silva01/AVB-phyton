@@ -3,34 +3,13 @@ import { ParallaxComponent } from "./ui/parallax-scrolling";
 
 const Hero = () => {
   const techWords = [
-    "AUTOMAÇÕES",
-    "N8N",
-    "INTEGRAÇÕES",
-    "SUPABASE",
-    "APIS",
-    "POSTGRES",
-    "AGENTES DE IA",
-    "SQL",
-    "WORKFLOWS INTELIGENTES",
-    "OPENAI",
-    "DISPAROS AUTOMÁTICOS",
-    "VIBE CODING",
-    "CHATBOTS",
-    "LOVABLE",
-    "ASSISTENTES VIRTUAIS",
-    "MAKE",
-    "APLICATIVOS NO-CODE",
-    "GPT AGENTS",
-    "DASHBOARDS",
-    "WHATSAPP API",
-    "SISTEMAS PERSONALIZADOS",
-    "WEBHOOKS",
-    "APLICAÇÕES WEB",
-    "HTTP REQUEST",
-    "APLICAÇÕES MOBILE",
-    "API REST",
-    "SITES INTELIGENTES",
-    "SOLUÇÕES CORPORATIVAS",
+    "entender",
+    "planejar",
+    "integrar",
+    "automatizar",
+    "melhorar",
+    "crescer",
+    "e lucrar",
   ].join(" • ");
 
   return (
@@ -48,7 +27,7 @@ const Hero = () => {
         <VelocityScroll
           text={techWords}
           default_velocity={2}
-          className="text-xs sm:text-sm md:text-base font-light tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-300 hover:scale-110"
+          className="text-xs sm:text-sm md:text-base font-light tracking-[0.15em] sm:tracking-[0.2em] transition-all duration-300 hover:scale-110"
           style={{ color: '#FF8C42' }}
         />
       </div>
