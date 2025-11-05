@@ -8,8 +8,7 @@ const Header = () => {
           <li>
             <Link 
               to="/" 
-              className="text-[0.6rem] sm:text-xs font-light tracking-wide sm:tracking-wider transition-colors duration-200 uppercase"
-              style={{ color: '#FF8C42' }}
+              className="text-[0.6rem] sm:text-xs font-light tracking-wide sm:tracking-wider text-foreground/70 hover:text-foreground transition-colors duration-200 uppercase"
             >
               Home
             </Link>
@@ -17,8 +16,7 @@ const Header = () => {
           <li>
             <a 
               href="#portfolio" 
-              className="text-[0.6rem] sm:text-xs font-light tracking-wide sm:tracking-wider transition-colors duration-200 uppercase"
-              style={{ color: '#FF8C42' }}
+              className="text-[0.6rem] sm:text-xs font-light tracking-wide sm:tracking-wider text-foreground/70 hover:text-foreground transition-colors duration-200 uppercase"
             >
               Projetos
             </a>
@@ -26,8 +24,7 @@ const Header = () => {
           <li>
             <Link 
               to="/servicos" 
-              className="text-[0.6rem] sm:text-xs font-light tracking-wide sm:tracking-wider transition-colors duration-200 uppercase"
-              style={{ color: '#FF8C42' }}
+              className="text-[0.6rem] sm:text-xs font-light tracking-wide sm:tracking-wider text-foreground/70 hover:text-foreground transition-colors duration-200 uppercase"
             >
               Serviços
             </Link>
@@ -35,8 +32,7 @@ const Header = () => {
           <li>
             <Link 
               to="/contato" 
-              className="text-[0.6rem] sm:text-xs font-light tracking-wide sm:tracking-wider transition-colors duration-200 uppercase"
-              style={{ color: '#FF8C42' }}
+              className="text-[0.6rem] sm:text-xs font-light tracking-wide sm:tracking-wider text-foreground/70 hover:text-foreground transition-colors duration-200 uppercase"
             >
               Contato
             </Link>
