@@ -18,9 +18,6 @@ const Index = () => {
         <Suspense fallback={<Skeleton className="min-h-screen" />}>
           <Hero />
         </Suspense>
-        <Suspense fallback={<Skeleton className="h-96" />}>
-          <Features />
-        </Suspense>
         <Suspense fallback={<Skeleton className="min-h-screen" />}>
           <ScrollHeroSection />
         </Suspense>

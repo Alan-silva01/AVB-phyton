@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import HeroSkeleton from "./HeroSkeleton";
 
-const SCROLL_SPEED = 80; // pixels por segundo
+const SCROLL_SPEED = 60; // pixels por segundo - reduzido para melhor performance
 
 const Hero = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -72,20 +72,34 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-card/50" />
 
         {/* 3D Robot iframe with mouse interaction enabled */}
-        <div className="absolute inset-0 opacity-90 pointer-events-auto">
+        <div className="absolute inset-0 opacity-90 pointer-events-auto will-change-transform">
           <iframe
             src="https://my.spline.design/nexbotrobotcharacterconcept-KecHA1jjjtnXeR3FIpQyfIV3/"
             title="Interactive 3D Robot"
             className="w-full h-full border-0"
             allow="autoplay; fullscreen"
-            style={{ pointerEvents: "auto" }}
+            loading="lazy"
+            style={{ 
+              pointerEvents: "auto",
+              transform: "translateZ(0)",
+              backfaceVisibility: "hidden"
+            }}
             onLoad={() => setIsLoading(false)}
           />
         </div>
 
         {/* Infinite Scroll Text - Bottom Gradient */}
         <div className="absolute bottom-16 sm:bottom-20 lg:bottom-24 left-0 right-0 z-10 overflow-hidden pointer-events-none">
-          <div ref={trackRef} className="flex whitespace-nowrap w-max transform-gpu will-change-transform">
+          <div 
+            ref={trackRef} 
+            className="flex whitespace-nowrap w-max"
+            style={{
+              transform: "translateZ(0)",
+              willChange: "transform",
+              backfaceVisibility: "hidden",
+              perspective: "1000px"
+            }}
+          >
             <div ref={firstGroupRef} className="flex gap-8 sm:gap-12 md:gap-16 lg:gap-20">
               {[
                 "AUTOMAÇÕES",
