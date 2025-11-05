@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 type Theme = "system" | "light" | "dark";
 
@@ -34,26 +34,15 @@ function WordHeroPage({
   debug = false,
   taglineHTML = `Desenvolvo soluções inteligentes que <br />simplificam processos e <span style="color: hsl(217 91% 60%)">otimizam rotinas</span>.`,
 }: ShipStickyHeaderProps) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
   useEffect(() => {
     const root = document.documentElement;
     root.dataset.theme = theme;
-    root.dataset.animate = String(animate && !isMobile);
+    root.dataset.animate = String(animate);
     root.dataset.debug = String(debug);
     root.style.setProperty("--hue", String(hue));
     root.style.setProperty("--start", `${startVh}vh`);
     root.style.setProperty("--space", `${spaceVh}vh`);
-  }, [theme, animate, debug, hue, startVh, spaceVh, isMobile]);
+  }, [theme, animate, debug, hue, startVh, spaceVh]);
 
   return (
     <div
@@ -186,14 +175,6 @@ function WordHeroPage({
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-        }
-        
-        @media (max-width: 768px) {
-          li {
-            background: none;
-            color: #FF8C42;
-            -webkit-text-fill-color: #FF8C42;
-          }
         }
 
         main {
