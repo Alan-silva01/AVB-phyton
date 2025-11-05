@@ -42,12 +42,6 @@ function WordHeroPage({
     root.style.setProperty("--hue", String(hue));
     root.style.setProperty("--start", `${startVh}vh`);
     root.style.setProperty("--space", `${spaceVh}vh`);
-    
-    // Disable heavy animations on mobile for performance
-    const isMobile = window.innerWidth < 768;
-    if (isMobile) {
-      root.dataset.animate = "false";
-    }
   }, [theme, animate, debug, hue, startVh, spaceVh]);
 
   return (

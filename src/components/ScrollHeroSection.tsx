@@ -13,7 +13,7 @@ const ScrollHeroSection = () => {
         'Lucrar.'
       ]}
       theme="dark"
-      animate={false}
+      animate={true}
       hue={25}
       startVh={50}
       spaceVh={50}
