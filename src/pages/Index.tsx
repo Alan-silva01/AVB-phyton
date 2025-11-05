@@ -5,6 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const Hero = lazy(() => import("@/components/Hero"));
 const Features = lazy(() => import("@/components/Features"));
+const ScrollHeroSection = lazy(() => import("@/components/ScrollHeroSection"));
 const CTA = lazy(() => import("@/components/CTA"));
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -19,6 +20,9 @@ const Index = () => {
         </Suspense>
         <Suspense fallback={<Skeleton className="h-96" />}>
           <Features />
+        </Suspense>
+        <Suspense fallback={<Skeleton className="min-h-screen" />}>
+          <ScrollHeroSection />
         </Suspense>
         <Suspense fallback={<Skeleton className="h-64" />}>
           <CTA />
