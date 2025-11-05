@@ -9,6 +9,10 @@ export function ParallaxComponent() {
   const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Disable parallax on mobile for performance
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
     const triggerElement = parallaxRef.current?.querySelector('[data-parallax-layers]');

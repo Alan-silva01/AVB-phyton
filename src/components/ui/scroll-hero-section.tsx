@@ -42,6 +42,12 @@ function WordHeroPage({
     root.style.setProperty("--hue", String(hue));
     root.style.setProperty("--start", `${startVh}vh`);
     root.style.setProperty("--space", `${spaceVh}vh`);
+    
+    // Disable heavy animations on mobile for performance
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      root.dataset.animate = "false";
+    }
   }, [theme, animate, debug, hue, startVh, spaceVh]);
 
   return (
@@ -173,6 +179,21 @@ function WordHeroPage({
           background-attachment: fixed;
           color: #0000;
           background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        
+        /* Mobile fallback with direct orange color */
+        @media (max-width: 768px) {
+          li {
+            background: linear-gradient(
+              180deg,
+              #666 0 calc(var(--start) - 0.5lh),
+              #FF8C42 calc(var(--start) - 0.55lh) calc(var(--start) + 0.55lh),
+              #666 calc(var(--start) + 0.5lh)
+            );
+            background-attachment: scroll;
+          }
         }
 
         main {

@@ -41,9 +41,12 @@ function ParallaxText({
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
+  
+  // Reduce smoothness on mobile for better performance
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400,
+    damping: isMobile ? 100 : 50,
+    stiffness: isMobile ? 800 : 400,
   });
 
   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
