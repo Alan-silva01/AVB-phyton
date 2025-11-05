@@ -114,7 +114,7 @@ All colors MUST be HSL.
   }
 
   .parallax__layer-title {
-    @apply absolute inset-0 flex items-center justify-center z-[5];
+    @apply absolute inset-0 flex items-center justify-center z-20;
   }
 
   .parallax__layer-img {
