@@ -91,6 +91,39 @@ All colors MUST be HSL.
   img {
     content-visibility: auto;
   }
+
+  /* Parallax Styles */
+  .parallax {
+    @apply relative w-full;
+  }
+
+  .parallax__header {
+    @apply relative w-full h-screen flex items-center justify-center overflow-hidden;
+  }
+
+  .parallax__visuals {
+    @apply relative w-full h-full;
+  }
+
+  .parallax__black-line-overflow {
+    @apply absolute inset-0 bg-black z-0;
+  }
+
+  .parallax__layers {
+    @apply relative w-full h-full flex items-center justify-center;
+  }
+
+  .parallax__layer-img {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+
+  .parallax__layer-title {
+    @apply absolute inset-0 flex items-center justify-center z-10;
+  }
+
+  .parallax__fade {
+    @apply absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none z-20;
+  }
 }
 
 @layer utilities {
