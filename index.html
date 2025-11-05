@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title & Description -->
+    <title>INTELFLUX - AI SOLUTIONS AGENCY | Automações & Sistemas Inteligentes</title>
+    <meta
+      name="description"
+      content="INTELFLUX - Agência especializada em soluções de IA, automações com N8N, integrações Supabase e sistemas inteligentes para seu negócio"
+    />
+    <meta name="author" content="NexBot" />
+    <meta name="keywords" content="IA, automação, N8N, Supabase, sistemas, chatbots, integrações" />
+
+    <!-- Preload crítico -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://storage.googleapis.com" />
+
+    <!-- Fontes não-blocking -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Open Graph Otimizado -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="INTELFLUX - AI SOLUTIONS AGENCY" />
+    <meta
+      property="og:description"
+      content="Soluções em IA, automações N8N, integrações Supabase e sistemas inteligentes para potencializar seu negócio"
+    />
+    <meta property="og:image" content="https://storage.googleapis.com/...intelflux-social-1200x630.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="INTELFLUX - Transformando negócios com IA" />
+    <meta property="og:url" content="https://seusite.com" />
+    <meta property="og:site_name" content="INTELFLUX" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@intelflux" />
+    <meta name="twitter:creator" content="@intelflux" />
+    <meta name="twitter:title" content="INTELFLUX - AI SOLUTIONS AGENCY" />
+    <meta name="twitter:description" content="Soluções em IA e automações inteligentes para seu negócio" />
+    <meta name="twitter:image" content="https://storage.googleapis.com/...intelflux-social-1200x630.jpg" />
+
+    <!-- Favicon Moderno -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Performance -->
+    <style>
+      /* Critical CSS inline para evitar FOUC */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- Loading screen inicial -->
+    <div class="loading-screen" id="loadingScreen">
+      <div style="color: white; text-align: center;">
+        <div>INTELFLUX</div>
+        <div style="font-size: 12px; margin-top: 10px;">Carregando...</div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      // Remove loading screen quando app carregar
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const loadingScreen = document.getElementById('loadingScreen');
+          if (loadingScreen) {
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => loadingScreen.remove(), 500);
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
