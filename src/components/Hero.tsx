@@ -47,8 +47,9 @@ const Hero = () => {
       <div className="relative z-10 w-full overflow-hidden pointer-events-none pb-8 sm:pb-12 lg:pb-16">
         <VelocityScroll
           text={techWords}
-          default_velocity={2}
-          className="text-xs sm:text-sm md:text-base font-light tracking-[0.15em] sm:tracking-[0.2em] text-foreground/70 uppercase"
+          default_velocity={1}
+          className="text-xs sm:text-sm md:text-base font-light tracking-[0.15em] sm:tracking-[0.2em] uppercase"
+          style={{ color: '#FF8C42' }}
         />
       </div>
 
