@@ -117,8 +117,12 @@ All colors MUST be HSL.
     @apply absolute inset-0 flex items-center justify-center z-20;
   }
 
-  .parallax__layer-img {
-    @apply absolute inset-0 w-full h-full object-cover z-10;
+  .parallax__layer-img--back {
+    z-index: 10;
+  }
+
+  .parallax__layer-img--front {
+    z-index: 30;
   }
 
   .parallax__fade {

@@ -52,12 +52,7 @@ const Hero = () => {
         />
       </div>
 
-      {/* AI Solutions Agency tagline */}
-      <div className="relative z-10 pb-8 sm:pb-12 lg:pb-16 pointer-events-none">
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light tracking-[0.15em] sm:tracking-[0.2em] text-white/90 uppercase">
-          AI SOLUTIONS AGENCY
-        </p>
-      </div>
+      {/* AI Solutions Agency tagline - REMOVED since it's now in parallax */}
 
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-48 lg:h-64 bg-gradient-to-t from-black via-black to-transparent sm:via-black/95 pointer-events-none" />
