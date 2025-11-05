@@ -30,7 +30,7 @@ const Hero = () => {
     "APLICAÇÕES MOBILE",
     "API REST",
     "SITES INTELIGENTES",
-    "SOLUÇÕES CORPORATIVAS",
+    "SOLUÇÕES CORPORATIVAS"
   ].join(" • ");
 
   return (
