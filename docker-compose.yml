@@ -14,7 +14,6 @@ services:
       - EVOLUTION_INSTANCE=${EVOLUTION_INSTANCE}
       - AVB_GROUP_ID=${AVB_GROUP_ID}
     depends_on:
-      - postgres
       - redis
     volumes:
       - ./uploads:/app/uploads
@@ -22,20 +21,21 @@ services:
     networks:
       - avb-network
 
-  postgres:
-    image: postgres:16-alpine
-    container_name: avb-postgres
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    restart: unless-stopped
-    networks:
-      - avb-network
+  # PostgreSQL comentado - usando Supabase externo
+  # postgres:
+  #   image: postgres:16-alpine
+  #   container_name: avb-postgres
+  #   environment:
+  #     - POSTGRES_USER=${POSTGRES_USER}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #     - POSTGRES_DB=${POSTGRES_DB}
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   restart: unless-stopped
+  #   networks:
+  #     - avb-network
 
   redis:
     image: redis:7-alpine
@@ -49,7 +49,7 @@ services:
       - avb-network
 
 volumes:
-  postgres_data:
+  # postgres_data:  # Comentado - usando Supabase
   redis_data:
 
 networks:
